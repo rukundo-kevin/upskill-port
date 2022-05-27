@@ -718,7 +718,7 @@ div:hover{
 @media only screen and (max-width: 760px) {
   /* Make the nav responsive */
      ul span.name{
-        margin: 1em 0 0 3em;
+        margin: 1em 7em 0 -2em;
       }
       .nav-ul {
         position: fixed;
@@ -778,7 +778,7 @@ div:hover{
     	background-color: #333;
     	width: 510px;
     	min-height: 430px;
-    	margin:40px 0px 0px 0px;
+    	margin:40px 0px 0px 20px;
     }
     .sidenav{
       display: none;
@@ -792,7 +792,9 @@ div:hover{
     	width:76vw;
     	padding: 3em;
     }
-
+    div#who{
+      margin-left: 20px;
+    }
     div#where .social{
        min-height: initial;
     }
@@ -805,6 +807,7 @@ div:hover{
       margin: 2em 1em 4em 1em;
       padding: 0;
       background-color: inherit;
+      justify-items: stretch;
         }
 
     div#how .last{
@@ -813,7 +816,7 @@ div:hover{
       justify-content: center;
       align-content: center;
       align-items: center;
-      margin-top: 1em;
+      margin: 1em 2em 0 0;
       box-shadow: 2px 1px 4px rgb(0 0 0 / 25%), -2px 6px 12px rgb(0 0 0 / 22%);
       padding: 1em;
     }
