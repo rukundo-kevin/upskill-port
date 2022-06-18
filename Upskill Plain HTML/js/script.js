@@ -108,7 +108,7 @@ document.addEventListener('scroll',function(){
 	}
 
 	else if(scrollY > 1120){
-		//console.log(window.scrollY);
+		console.log(window.scrollY);
 		document.querySelector('ul').classList.add('nav_white');
 	}
 	else if(scrollY < 1100){
@@ -116,7 +116,6 @@ document.addEventListener('scroll',function(){
 		document.querySelector('ul').classList.remove('nav_white');
 	}
 })
-
 
 const labels = document.querySelectorAll('.form-item label')
 
