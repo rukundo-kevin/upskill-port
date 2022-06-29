@@ -250,38 +250,6 @@ div#who .bar {
    background-color: #0080A9;
 }
 
-div#who #css{
-   width: 86%;
-}
-
-div#who #js{
-   width: 82%;
-}
-
-div#who #bs{
-   width: 93%;
-}
-
-div#who #express{
-   width: 70%;
-}
-
-div#who #d3{
-   width: 12%;
-}
-
-div#who #react{
-   width: 38%;
-}
-
-
-div#who #nodejs{
-   width: 44%;
-}
-div#who #mocha{
-   width: 20%;
-}
-
 .about-text{
 	padding: 10px 8px;
 	margin-top: 100px;
