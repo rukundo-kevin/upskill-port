@@ -4,6 +4,10 @@ import { IconContext } from "react-icons";
 import Header from "./components/Header";
 import './index.css';
 
+import * as Todos from "./todoApi";
+
+const {addNewTodo, getTodos, getTodo, removeTodo, updateTodo} = Todos;
+
 const Todo = () =>{
     const [todos, addTodos] = useState([]);
     const [error, setError] = useState("")
@@ -49,7 +53,6 @@ const Todo = () =>{
       <form  action="#" className="" method="post" id="contact-form">
         <div className="form-item">
           <input  type="text" name="todoInput" value={todo} id="todoInput" onChange={handleChange} placeholder="Enter new to do" />
-          {/* <label>New Todo</label> */}
         </div>
 
         <button className="btn" style={{marginTop:"2px"}} onClick={handleClick}><span>Add New To Do </span>  </button>
