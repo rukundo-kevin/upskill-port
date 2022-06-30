@@ -45,6 +45,10 @@ const Todo =() =>{
       alert("Task Deleted Successfully")
     }
 
+    const handeleDblClick = (newTodo) =>{
+      updateTodo(newTodo);
+     todo == ""?setTodo("  "):setTodo("")
+    }
   const customStyle = {marginTop: "-4em", paddingTop:"1em"};
  return(
     <>   
@@ -68,7 +72,7 @@ const Todo =() =>{
           {todos.length !== 0?
                 (todos.map(todo => {
                     return(
-                        <div key={todo.id} className="todo">
+                        <div key={todo.id} className={`todo ${todo.completed?'completed':''}`} onDoubleClick={(e=>handeleDblClick(todo))}>
                             <p>{todo.title}</p>
                             <div  id={todo.id} >
                             <IconContext.Provider value={{ color: "#ee354b", className: "liIcon" }}>

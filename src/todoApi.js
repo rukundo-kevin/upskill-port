@@ -32,7 +32,15 @@ export const removeTodo = async (id) => {
     return response.data;
 }  
 
-export const updateTodo = async (id, todo) => {
-    const response = await api.put(`/${id}`, todo);
+export const updateTodo = async (todo) => {
+    const {id, completed, title} = todo;
+    const response = await api.put(`/${id}`, {
+       title,
+       completed: !completed
+    });
     return response.data;
 }
+
+let todos=[];
+
+export default todos;

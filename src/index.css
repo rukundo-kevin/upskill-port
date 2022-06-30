@@ -438,12 +438,17 @@ div.form-item .todo{
   margin-left: -3em;
   color: white;
   min-width: 56vw;
+  font-weight: 400;
   }
   
-  .todo .completed {
-    border-bottom: 3px coral solid;
-    background-color: #ccc;
-  }
+ .completed {
+   border-bottom: 6px rgb(33, 222, 33) solid;
+   background-color: #fff;
+   color: #333;
+   box-shadow: 0px 1px 4px rgb(0 0 0 / 25%), -4px 3px 11px rgb(0 0 0 / 22%);
+   font-weight: 600;
+ }
+
   
   .todo i {
     color: blue;
