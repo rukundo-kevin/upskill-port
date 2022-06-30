@@ -1,30 +1,38 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: "https://jsonplaceholder.typicode.com/todos",
+    baseURL: "http://localhost:3000/todos",
+    config: {
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+        }
+    }
 });
 
 export const getTodos = async () => {
-    const response = await api.get("/todos");
-    return response.data;
+    const response = await api.get("/");
+    return response.data.slice(0,10);
 }
 
 export const getTodo = async (id) => {
-    const response = await api.get(`/todos/${id}`);
+    const response = await api.get(`/${id}`);
     return response.data;
 }
 
 export const addNewTodo = async (todo) => {
-    const response = await api.post("/todos", todo);
+    const response = await api.post("",{
+        "title": todo,
+        "completed": false
+      });
     return response.data;
 }
 
 export const removeTodo = async (id) => {
-    const response = await api.delete(`/todos/${id}`);
+    const response = await api.delete(`/${id}`);
     return response.data;
 }  
 
 export const updateTodo = async (id, todo) => {
-    const response = await api.put(`/todos/${id}`, todo);
+    const response = await api.put(`/${id}`, todo);
     return response.data;
 }

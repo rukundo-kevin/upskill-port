@@ -420,7 +420,7 @@ div.form-item .todo{
 .todoContainer{
   display: flex;
   flex-direction: column;
-  width: 35vw;
+  min-width: 45vw;
   padding:0.3em;
   cursor: copy;
 }
@@ -435,9 +435,18 @@ div.form-item .todo{
   background-color: #554f4f;
   border-radius: 6px;
   margin-top: 0.4em;
-  margin-left: -4em;
+  margin-left: -3em;
   color: white;
-  width: 47vw;
+  min-width: 56vw;
+  }
+  
+  .todo .completed {
+    border-bottom: 3px coral solid;
+    background-color: #ccc;
+  }
+  
+  .todo i {
+    color: blue;
 }
 
 .todo p{
@@ -452,6 +461,7 @@ ul#todoUl {
 .liIcon{
 margin-left: 16em;
 margin-top: 1.3em;
+justify-content: flex-end;
 }
  
 li#todoLi {
@@ -845,7 +855,11 @@ div:hover{
       box-shadow: 2px 1px 4px rgb(0 0 0 / 25%), -2px 6px 12px rgb(0 0 0 / 22%);
       padding: 1em;
     }
-
+                                                                div#how .todoLast {
+                                                                  width: 100vw;
+                                                                  margin: 0 0 0 0;
+                                                                  padding: 3em;
+                                                                }
     .form-item {
       margin: 15px 0 20px;
       width: auto;

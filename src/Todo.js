@@ -1,43 +1,50 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaTimes } from "react-icons/fa";
 import { IconContext } from "react-icons";
 import Header from "./components/Header";
 import './index.css';
 
 import * as Todos from "./todoApi";
-
 const {addNewTodo, getTodos, getTodo, removeTodo, updateTodo} = Todos;
 
-const Todo = () =>{
+const Todo =() =>{
     const [todos, addTodos] = useState([]);
     const [error, setError] = useState("")
     const [todo, setTodo] = useState("");
+
     const handleChange = (e) => {
         setTodo(e.target.value);
     }
+
+    useEffect(()=>{
+       const getTodoList = async () => {
+                const t = await getTodos();  
+                addTodos(t); 
+                }
+                getTodoList();
+    },[todo])
+
     const handleClick = (e) =>{
         e.preventDefault();
         if (!todo) {
           setError("Todo empty")     
           return;
         }
-        todos.forEach(t=>{
-          if(t.text === todo) {
-            setError("New Todo already in the list")
-          }
-          return;
-        })
-        !error && addTodos([...todos, {text: todo, completed: false}]);
+        !error && addNewTodo(todo);
+        // !error && addTodos([...todos, {text: todo, completed: false}]);
         setTodo("");
         setError("")
     }
 
     const handleRemove = (e) => {
       const id = (e.target.parentNode.parentNode).id;
-        const newTodos = todos.filter((todo, index) => index !== +id
-        );
-        addTodos(newTodos);
+      const newTodos = todos.filter((todo, index) => index !== +id  );
+      addTodos(newTodos);
+      removeTodo(id);
+      setTodo("");
+      alert("Task Deleted Successfully")
     }
+
   const customStyle = {marginTop: "-4em", paddingTop:"1em"};
  return(
     <>   
@@ -46,7 +53,7 @@ const Todo = () =>{
     <div>
       <h1>ToDo App</h1>
     </div>
-    <div className="last" style={{marginLeft:"24em"}}>
+    <div className="last todoLast" style={{marginLeft:"24em"}}>
       {error && (<div className="error" style={{display: "block"}}>
             Error:{error}
        </div>)}
@@ -59,11 +66,11 @@ const Todo = () =>{
       </form>
          <div className="todoContainer">
           {todos.length !== 0?
-                (todos.map((todo, index) => {
+                (todos.map(todo => {
                     return(
-                        <div key={index} className="todo">
-                            <p>{todo.text}</p>
-                            <div  id={index} >
+                        <div key={todo.id} className="todo">
+                            <p>{todo.title}</p>
+                            <div  id={todo.id} >
                             <IconContext.Provider value={{ color: "#ee354b", className: "liIcon" }}>
                                 <FaTimes onClick={handleRemove}/>
                             </IconContext.Provider>
