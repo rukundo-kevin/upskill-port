@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { FaTimes } from "react-icons/fa";
+import { FaTimes, FaEdit } from "react-icons/fa";
 import { IconContext } from "react-icons";
 import Header from "./components/Header";
 import './index.css';
@@ -46,9 +46,23 @@ const Todo =() =>{
     }
 
     const handeleDblClick = (newTodo) =>{
-      updateTodo(newTodo);
+      updateTodo(newTodo, true);
      todo == ""?setTodo("  "):setTodo("")
     }
+
+    const updateTitle = (e) =>{
+      const id = (e.target.parentNode.parentNode).id;
+      const newTitle = prompt("Enter New Title");
+      if(newTitle.length < 3){
+        return setError("Title too short");
+      }
+      const newTodo = todos.filter((todo) => todo.id === +id)[0]
+      const {completed} = newTodo;
+      console.log(completed)
+    //  updateTodo(newTodo, false);
+      setError("");
+    }
+
   const customStyle = {marginTop: "-4em", paddingTop:"1em"};
  return(
     <>   
@@ -74,9 +88,12 @@ const Todo =() =>{
                     return(
                         <div key={todo.id} className={`todo ${todo.completed?'completed':''}`} onDoubleClick={(e=>handeleDblClick(todo))}>
                             <p>{todo.title}</p>
-                            <div  id={todo.id} >
+                            <div  id={todo.id}  className="icons">
                             <IconContext.Provider value={{ color: "#ee354b", className: "liIcon" }}>
                                 <FaTimes onClick={handleRemove}/>
+                            </IconContext.Provider>
+                            <IconContext.Provider value={{ color: "green", className: "liIcon" }}>
+                                <FaEdit onClick={updateTitle}/>
                             </IconContext.Provider>
                             </div>
                         </div>

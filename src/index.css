@@ -457,6 +457,9 @@ div.form-item .todo{
 .todo p{
   margin-left: 3em;
 }
+.todo .icons {
+  margin-left: 8em;
+}
 ul#todoUl {
   list-style-type: none;
   margin: 0;
