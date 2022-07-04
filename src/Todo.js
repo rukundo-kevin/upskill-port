@@ -53,14 +53,18 @@ const Todo =() =>{
     const updateTitle = (e) =>{
       const id = (e.target.parentNode.parentNode).id;
       const newTitle = prompt("Enter New Title");
-      if(newTitle.length < 3){
+      if(newTitle && newTitle.length < 3){
         return setError("Title too short");
       }
-      const newTodo = todos.filter((todo) => todo.id === +id)[0]
-      const {completed} = newTodo;
-      console.log(completed)
-    //  updateTodo(newTodo, false);
+      let newTodo = todos.filter((todo) => todo.id === +id)[0];
+      newTodo= newTodo?{...newTodo, title:newTitle}:undefined;
+      updateTodo(newTodo ? newTodo:     {
+        "title": "Updated todo",
+        "completed": true,
+        "id": 10
+      }, false);
       setError("");
+      todo == ""?setTodo("  "):setTodo("")
     }
 
   const customStyle = {marginTop: "-4em", paddingTop:"1em"};

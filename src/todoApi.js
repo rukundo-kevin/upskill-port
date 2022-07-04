@@ -34,6 +34,7 @@ export const removeTodo = async (id) => {
 
 export const updateTodo = async (todo, changeCompleted) => {
     const {id, completed, title} = todo;
+    console.log(title)
     const response = await api.put(`/${id}`, {
        title,
        completed: changeCompleted?!completed:completed
