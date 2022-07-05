@@ -72,7 +72,7 @@ const Todo =() =>{
     <>   
     <Header customStyle={customStyle}/>
   <div id="how" className="howTodo">
-    <div>
+    <div> 
       <h1>ToDo App</h1>
     </div>
     <div className="last todoLast" style={{marginLeft:"24em"}}>
@@ -80,7 +80,7 @@ const Todo =() =>{
             Error:{error}
        </div>)}
       <form  action="#" className="" method="post" id="contact-form">
-        <div className="form-item">
+        <div className="form-item">             b
           <input  type="text" name="todoInput" value={todo} id="todoInput" onChange={handleChange} placeholder="Enter new to do" />
         </div>
 
